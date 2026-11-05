@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrendPulse Shorts</title>
+<style>
+:root{--bg:#0f0f12;--fg:#fff;--btn:#ff2d55}
+@media (prefers-color-scheme: light){:root{--bg:#0f0f12;--fg:#fff}}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Arial,sans-serif}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{display:flex;flex-direction:column;height:100%}
+.top{padding:10px 14px;font-weight:700;font-size:16px}
+.player{flex:1;min-height:0;display:flex;justify-content:center}
+iframe{width:100%;max-width:520px;height:100%;border:0}
+.bar{display:flex;gap:10px;padding:10px 14px}
+button,a.b{flex:1;padding:13px;border:0;border-radius:12px;background:var(--btn);color:#fff;font-size:16px;font-weight:600;text-align:center;text-decoration:none}
+a.b{background:#2a2a30}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">TrendPulse Shorts</div>
+  <div class="player">
+    <iframe id="yt"
+      src="https://www.youtube.com/embed/videoseries?list=UUSHfBj-x77od4nZBDwB308yHw&autoplay=1&playsinline=1&rel=0&enablejsapi=1"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+  </div>
+  <div class="bar">
+    <button id="next">Keyingi ▶</button>
+    <a class="b" href="https://www.youtube.com/@trendpulse1-d5c/shorts" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</div>
+<script>
+document.getElementById('next').addEventListener('click',function(){
+  var f=document.getElementById('yt');
+  f.contentWindow.postMessage(JSON.stringify({event:'command',func:'nextVideo',args:''}),'*');
+});
+</script>
+</body>
+</html>
